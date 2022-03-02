@@ -12,12 +12,18 @@ function playRound(playerSelection, computerSelection) {
      if (playerSelection.toLowerCase() === "scissors") {
         if (computerSelection.toLowerCase() === "paper") {
             playerScore += 1;
-            return "You win! Scissors beats paper";
+            return "You win! Scissors beats Paper\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         } else if (computerSelection.toLowerCase() === "rock") {
             computerScore += 1;
-            return "You lose! Rock beats scissors";
+            return "You lose! Rock beats Scissors\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         } else {
-            return "That's a tie!";
+            return "That's a tie!\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         }
     } else if (playerSelection.toLowerCase() === "rock") {
         /* If player has rock and computer has paper return you lose! paper beats rock*/
@@ -25,25 +31,37 @@ function playRound(playerSelection, computerSelection) {
         /* If player has rock and c has rock return thats a tie*/
         if (computerSelection.toLowerCase() === "paper") {
             computerScore += 1;
-            return "You lose! Paper beats rock";
+            return "You lose! Paper beats rock\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         } else if (computerSelection.toLowerCase() === "rock") {
-            return "That's a tie!";
+            return "That's a tie!\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         } else {
             playerScore += 1;
-            return "You win! Rock beats scissors!";
+            return "You win! Rock beats Scissors\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         }
     } else {
         /* If player has paper and computer has scissors return you lose! scissors beats paper*/
         /* If player has paper and computer has rock return you win! paper beats rock*/
         /* If player has paper and c has paper return thats a tie*/
         if (computerSelection.toLowerCase() === "paper") {
-            return "That's a tie!";
+            return "That's a tie! " + 
+            "\nYour score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         } else if (computerSelection.toLowerCase() === "rock") {
             playerScore += 1;
-            return "You win! Paper beats rock";
+            return "You win! Paper beats rock\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         } else {
             computerScore += 1;
-            return "You lose! Scissors beats paper";
+            return "You lose! Scissors beats paper\n" + 
+            "Your score: " + playerScore.toString() + 
+            "\nComputer's score: " + computerScore.toString();
         }
 
     }
@@ -53,7 +71,7 @@ function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("You choose rock, paper or scissors?");
         let computerSelection = computerPlay();
-        playRound(playerSelection, computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
     }
 
     if (playerScore > computerScore) {
@@ -67,3 +85,4 @@ function game() {
 
 let playerScore = 0;
 let computerScore = 0;
+console.log(game());
