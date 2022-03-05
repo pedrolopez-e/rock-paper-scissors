@@ -11,57 +11,79 @@ function playRound(e) {
 
     if (playerSelection.toLowerCase() === "scissors") {
         if (computerSelection.toLowerCase() === "paper") {
-            //playerScore += 1;
+            playerScore += 1;
             let result = "You win! Scissors beats Paper\n";
-            resultDisplayer.textContent = "You win! Scissors beats Paper"
+            resultDisplayer.textContent = "You win! Scissors beats Paper\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         } else if (computerSelection.toLowerCase() === "rock") {
-            //computerScore += 1;
+            computerScore += 1;
             let result = "You lose! Rock beats Scissors\n";
-            resultDisplayer.textContent = "You lose! Rock beats Scissors"
+            resultDisplayer.textContent = "You lose! Rock beats Scissors\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         } else {
             let result = "That's a tie!\n";
-            resultDisplayer.textContent = "That's a tie!"
+            resultDisplayer.textContent = "That's a tie!\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         }
     } else if (playerSelection.toLowerCase() === "rock") {
         if (computerSelection.toLowerCase() === "paper") {
-            //computerScore += 1;
+            computerScore += 1;
             let result = "You lose! Paper beats rock\n";
-            resultDisplayer.textContent = "You lose! Paper beats rock"
+            resultDisplayer.textContent = "You lose! Paper beats rock\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         } else if (computerSelection.toLowerCase() === "rock") {
             let result = "That's a tie!\n";
-            resultDisplayer.textContent = "That's a tie!"
+            resultDisplayer.textContent = "That's a tie!\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         } else {
-            //playerScore += 1;
+            playerScore += 1;
             let result = "You win! Rock beats Scissors\n";
-            resultDisplayer.textContent = "You win! Rock beats Scissors"
+            resultDisplayer.textContent = "You win! Rock beats Scissors\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         }
     } else {
         if (computerSelection.toLowerCase() === "paper") {
             let result = "That's a tie!";
-            resultDisplayer.textContent = "That's a tie!"
+            resultDisplayer.textContent = "That's a tie!\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         } else if (computerSelection.toLowerCase() === "rock") {
-            //playerScore += 1;
+            playerScore += 1;
             let result = "You win! Paper beats rock\n";
-            resultDisplayer.textContent = "You win! Paper beats rock"
+            resultDisplayer.textContent = "You win! Paper beats rock\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         } else {
-            //computerScore += 1;
+            computerScore += 1;
             let result = "You lose! Scissors beats paper\n";
-            resultDisplayer.textContent = "You lose! Scissors beats paper"
+            resultDisplayer.textContent = "You lose! Scissors beats paper\nPlayer's score: " + playerScore.toString() +
+            "\nComputer's score: " + computerScore.toString();
             console.log(result);
         }
     }
 
     console.log("Player: " + playerSelection.toString());
     console.log("Computer: " + computerSelection.toString());
+
+    if (playerScore === 5) {
+        resultDisplayer.textContent = "You win!! Congratulations!!";
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        resultDisplayer.textContent = "You lose! Game over :("
+        playerScore = 0;
+        computerScore = 0;
+    }
 }
+
+let playerScore = 0;
+let computerScore = 0;
 
 const buttons = document.querySelectorAll('button');
 const resultDisplayer = document.querySelector('#resultDisplayer');
